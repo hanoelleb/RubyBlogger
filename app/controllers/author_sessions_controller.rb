@@ -4,6 +4,7 @@ class AuthorSessionsController < ApplicationController
 
   def create
     if login(params[:email], params[:password])
+      flash.now.alert = "Login successful."
       redirect_back_or_to(articles_path, notice: 'Logged in successfully.')
     else
       flash.now.alert = "Login failed."
